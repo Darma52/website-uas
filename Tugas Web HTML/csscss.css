@@ -1,0 +1,729 @@
+/*Variable*/
+:root {
+    --primary: #354f6b;
+    --bg: #ffffff;
+    --tpcolor: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg);
+    color: #ffffff;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/*navbar*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 7%;
+    background-color: #354f6b;
+    border-bottom: 1px solid var(--primary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.navbar .navbar-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.navbar .menu a {
+    color: #ffffff;
+    display: inline-block;
+    font-size: 1.2rem;
+    margin: 0 1rem;
+}
+
+.navbar .menu a:hover {
+    color: black;
+}
+
+.navbar .tbl_biru {
+    background: #49e4ff;
+    border-radius: 15px;
+    margin-top: 20px;
+    padding: 15px 20px 15px 20px;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.navbar .menu a::after{
+    content: "";
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid #010101;
+    transform: scaleX(0);
+}
+
+.navbar .menu a:hover::after {
+    transform: scaleX(0.5);
+    transition: 0.2s linear;
+}
+
+.navbar .ekstra a {
+    color: #ffffff;
+    margin: 0 0.5rem;
+}
+
+.navbar .ekstra a:hover {
+    color: #010101;
+}
+/*activation user icon to signup or login*/
+.navbar .ekstra .masuk {
+    display: none;
+    position: absolute;
+    background-color: var(--primary);
+    z-index: 990;
+}
+
+.navbar .ekstra .masuk a {
+    color: #ffffff;
+    padding: 16px 16px;
+    display: block;
+}
+
+.navbar .ekstra .masuk a:hover {
+    background-color: #ffffff;
+}
+
+.navbar .ekstra a:hover .icon {
+    display: block;
+    position: absolute;
+    background: var(--primary);
+    padding: 10px;
+}
+
+.navbar .ekstra a:hover .masuk a {
+    display: block;
+}
+
+/*Deleting Icon Hamburger Menu in Big Size*/
+#hamburger-menu {
+    display: none;
+}
+
+/*Pop Up for Login*/
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(1.25);
+    width: 380px;
+    padding: 20px 30px;
+    background: #fff;
+    opacity: 0;
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0,15);
+    transition: top 0ms ease-in-out 200ms, opacity 200ms ease-in-out 0ms, transform 20ms ease-in-out 0ms;
+}
+.popup.active {
+    top: 50%;
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1);
+    transition: top 0ms ease-in-out 0ms, opacity 200ms ease-in-out 0ms, transform 0ms ease-in-out 0ms;
+}
+.popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
+    background: #888;
+    color: #eee;
+    text-align: center;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.popup .form h2 {
+    text-align: center;
+    color: #222;
+    margin: 10px 20px 0px;
+    font-size: 25px;
+}
+.popup .form .form-element {
+    margin: 15px 0px;
+}
+.popup .form .form-element label {
+    font-size: 14px;
+    color: #222;
+}
+.popup .form .form-element input[type="text"], .popup .form .form-element input[type="password"] {
+    margin-top: 5px;
+    display: block;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+.popup .form .form-element input[type="checkbox"] {
+    margin-right: 5px;
+}
+.popup .form .form-element button {
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #222;
+    color: #f5f5f5;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.popup .form .form-element a{
+    display: block;
+    text-align: right;
+    font-size: 15px;
+    color: #1a79ca;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/*Home Page Section*/
+.mainpage {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-image: url('11.jpg');
+    background-repeat: no-repeat;
+    background-size: center;
+    background-position: center;
+    position: relative;
+}
+
+.mainpage::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 25%;
+    bottom: 0;
+    /*background: linear-gradient(180deg, rgba(21, 41, 79, 0.459) 3%, rgb(255, 255, 255) 80%);*/
+}
+
+.mainpage .isi {
+    padding: 1.4rem 7%;
+    max-width: 60rem;
+}
+
+.mainpage .isi h1 {
+    font-size: 4em;
+    color: #ffffff;
+    text-shadow: 1px, 1px, 3px, rgba(255,255,255,1);
+    line-height: 1.2;
+}
+
+.mainpage .isi p {
+    font-size: 1.6rem;
+    margin-top: 1rem;
+    line-height: 1.4;
+    font-weight: 100;
+    text-shadow: 1px, 1px, 3px, rgba(255,255,255,1);
+}
+
+.mainpage .isi .tomboldiskon {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-size: 1.4rem;
+    color: #ffffff;
+    background-color: #354f6b;
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 3px rgba(1,1,3,0.5);
+    z-index: 70;
+}
+
+.mainpage .isi .tomboldiskon:hover {
+    background-color: #fc5185;
+    text-decoration: none;
+}
+
+/*About Section*/
+.about {
+    padding: 7rem 7% 1.6rem;
+}
+
+.about h2 {
+    color: #010101;
+    text-align: center;
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+}
+
+.about h2 span {
+    color: var(--primary);
+}
+
+.about .row {
+    display: flex;
+}
+
+.about .row .about-img {
+    flex: 1 1 1rem;
+}
+
+.about .row .about-img img {
+    width: 100%;
+}
+
+.about .row .content {
+    flex: 1 1 35rem;
+    padding: 0 1rem;
+}
+
+.about .row .content h3 {
+    color: #010101;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.about .row .content p {
+    color: #010101;
+    margin-bottom: 3rem;
+    font-size: 1.4rem;
+    font-weight: 100;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.about .row .content .tombol {
+    background: #3f72af;
+    border-radius: 0.5rem;
+    margin-top: 70px;
+    padding: 15px 20px 15px 20px;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.about .row .content .tombol:hover {
+    background: #fc5185;
+    text-decoration: none;
+}
+
+/*.about p {
+    color: #010101;
+    text-align: center;
+    max-width: 30rem;
+    margin: auto;
+    font-weight: 100;
+    line-height: 1.6;
+    font-size: 1rem;
+}*/
+
+/*Produk Section*/
+.produk {
+    padding: 7rem 7% 1.4rem;
+}
+.produk h2 {
+    color: #010101;
+    text-align: center;
+    font-size: 2.6rem;
+    margin-bottom: 1rem;
+}
+
+.produk h2 span {
+    color: var(--primary);
+}
+
+.produk p {
+    color: #010101;
+    text-align: center;
+    max-width: 50rem;
+    margin: auto;
+    font-weight: 100;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.produk .contohvideo {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.produk .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.produk .row .produk-card {
+    text-align: center;
+    padding-bottom: 3rem;
+}
+
+.produk .row .produk-card img {
+    border-radius: 50%;
+    width: 70%;
+}
+
+.produk .row .produk-card h3 {
+    color: #010101;
+    margin-top: 1rem auto 0.5rem;
+}
+
+/*Testimoni*/
+.testi {
+    padding: 7rem 7% 1.4rem;
+}
+.testi h2 {
+    color: #364f6b;
+    text-align: center;
+    font-size: 2.6rem;
+    margin-bottom: 1rem;
+}
+
+.testi p {
+    color: #010101;
+    text-align: center;
+    max-width: 50rem;
+    margin: auto;
+    font-weight: 100;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.testi .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.testi .row .list-testi {
+    text-align: center;
+    padding-bottom: 4rem;
+}
+
+.testi .row .list-testi img {
+    /*border-radius: 50%;*/
+    width: 50%;
+}
+
+.testi .row .list-testi h3 {
+    color: #010101;
+    margin-top: 1rem auto 0.5rem;
+}
+
+.testi .row .list-testi h4 {
+    color: #010101;
+    margin-top: 1rem auto 0.5rem;
+}
+
+.testi .row .list-testi p {
+    color: #010101;
+    margin-top: 1rem auto 0.5rem;
+    max-width: 20rem;
+}
+
+/*Tutor Section*/
+.tutor {
+    padding: 7rem 7% 1.4rem;
+}
+
+.tutor h2 {
+    color: #010101;
+    text-align: center;
+    font-size: 2.6rem;
+    margin-bottom: 1rem;
+}
+
+.tutor h2 span {
+    color: var(--primary);
+}
+
+.tutor p {
+    color: #010101;
+    text-align: center;
+    max-width: 50rem;
+    margin: auto;
+    font-weight: 100;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.tutor .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.tutor .row .tutor-list {
+    text-align: center;
+    padding-bottom: 4rem;
+}
+
+.tutor .row .tutor-list img {
+    border-radius: 50%;
+    width: 65%;
+}
+
+.tutor .row .tutor-list h3 {
+    color: #010101;
+    margin-top: 1rem auto 0.5rem;
+}
+
+/*.tutor-list {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.kartu-pengajar {
+    width: 20%;
+    margin: 0 auto;
+}
+
+.kartu-pengajar img {
+    width: 80%;
+    border-radius: 50%;
+}
+
+.kartu-pengajar p {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800;
+    font-size: 18px;
+    text-align: center;
+    color: #364f6b;
+}*/
+
+/* Contact Section */
+.contact {
+    padding: 7rem 7% 1.4rem;
+}
+.contact h2 {
+    color: #010101;
+    text-align: center;
+    font-size: 2.6rem;
+    margin-bottom: 1rem;
+}
+
+.contact h2 span {
+    color: var(--primary);
+}
+
+.contact p {
+    color: black;
+    text-align: center;
+    max-width: 50rem;
+    margin: auto;
+    font-weight: 100;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.contact .row {
+    display: flex;
+    margin-top: 2rem;
+    background-color: #364f6b;
+    /*flex-wrap: wrap;*/
+}
+
+.contact .row .map {
+    flex: 1 1 45rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.contact .row form {
+    flex: 1 1 45rem;
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.contact .row form .input-group {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    background-color: var(--bg);
+    border: 1px solid #ffffff;
+}
+
+.contact .row form .input-group {
+    color: #354f6b;
+    padding: 0px 25px;
+}
+
+.contact .row form .input-group input {
+    width: 100%;
+    padding: 2rem;
+    font-size: 1.7rem;
+    background: none;
+    color: black;
+}
+
+.contact .row form .button {
+    margin-top: 3rem;
+    border-radius: 0.5rem;
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-size: 1.7rem;
+    color: black;
+    background-color: var(--bg);
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background-color: #354f6b;
+    text-align: center;
+    padding: 1rem 0;
+    padding-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+footer .sosial {
+    padding: 1rem 0;
+}
+
+footer .sosial a {
+    color: #ffffff;
+    margin: 1.4rem;
+}
+
+footer .sosial a:hover {
+    color: #010101;
+}
+
+footer .link {
+    margin-bottom: 1rem;
+}
+
+footer .link a {
+    color: #ffffff;
+    padding: 0.7rem 1rem;
+}
+
+footer .link a:hover {
+    color: #010101;
+}
+
+footer .credit {
+    font-size: 0.8rem;
+}
+
+footer .credit a {
+    color: black;
+    font-weight: 700;
+}
+
+/*-*/
+/*Media Queries*/
+/*Laptop*/
+@media (max-width: 1366px) {
+    html {
+        font-size: 90%;
+    }
+}
+/*Tablet*/
+@media (max-width: 758px) {
+    html {
+        font-size: 62.5%;
+    }
+
+    /*sidebar menu*/
+    #hamburger-menu {
+        display: inline-block;
+    }
+
+    .navbar .menu {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background: #354f6b;
+        width: 20rem;
+        height: 100vh;
+        transition: 0.3s;
+    }
+
+    .navbar .menu.active{
+        right: 0;
+    }
+
+    .navbar .menu a {
+        color:#ffffff;
+        display: block;
+        margin: 1.5rem;
+        padding: 0.5rem;
+        font-size: 2rem;
+    }
+
+    .navbar .menu a::after {
+        transform-origin: 0 0;
+    }
+
+    .navbar .menu a:hover:after {
+        transform: scaleX(0.2)
+    }
+
+    /*about section*/
+    .about .row {
+        flex-wrap: wrap;
+    }
+
+    .about .row .about-img img {
+        height: 24rem;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .about .row .content {
+        padding: 0;
+    }
+
+    .about .row .content h3 {
+        margin-top: 1rem;
+        font-size: 2rem;
+    }
+
+    .about .row .content p {
+        font-size: 1.6rem;
+    }
+
+    .produk .contohvideo {
+        flex-wrap: wrap;
+    }
+
+    /*contact section*/
+    .contact .row {
+        flex-wrap: wrap;
+    }
+
+    .contact .row .map {
+        height: 30rem;
+    }
+
+    .contact .row form {
+        padding-top: 0;
+    }
+}
+/*Handphone*/
+@media (max-width: 450px) {
+    html {
+        font-size: 62.5%;
+    }
+}
+/*-*/
